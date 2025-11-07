@@ -22,7 +22,7 @@ server:
             client: "110"
             destination: SONALIKA_DEV
             authenticationType: BasicAuthentication
-          - path: /sap/opu/odata/sap/ZP_QU_DG_MYTASK_BND
+          - path: /sap/opu/odata/sap/ZP_QU_DG_MYTASK_SRV
             url: http://vhhdnds4ci.sap.SONALIKA_DEV.com:44300
             client: "110"
             destination: SONALIKA_DEV
@@ -51,14 +51,14 @@ server:
             metadataPath: ./webapp/localService/ZC_QU_DG_MM_REQ_MON_CDS/metadata.xml
             mockdataPath: ./webapp/localService/ZC_QU_DG_MM_REQ_MON_CDS/data
             generateMockData: true
-          - urlPath: /sap/opu/odata/sap/ZP_QU_DG_MYTASK_BND
-            metadataPath: ./webapp/localService/ZP_QU_DG_MYTASK_BND/metadata.xml
-            mockdataPath: ./webapp/localService/ZP_QU_DG_MYTASK_BND/data
+          - urlPath: /sap/opu/odata/sap/ZP_QU_DG_MYTASK_SRV
+            metadataPath: ./webapp/localService/ZP_QU_DG_MYTASK_SRV/metadata.xml
+            mockdataPath: ./webapp/localService/ZP_QU_DG_MYTASK_SRV/data
             generateMockData: true
         annotations:
           - localPath: ./webapp/localService/mainService/ZC_QUDG_DEADLINE_MONITOR_CDS_VAN.xml
             urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZC_QUDG_DEADLINE_MONITOR_CDS_VAN',Version='0001')/$value/
-          - localPath: ./webapp/localService/ZP_QU_DG_MYTASK_BND/ZP_QU_DG_MYTASK_BND_Annotation.xml
+          - localPath: ./webapp/localService/ZP_QU_DG_MYTASK_SRV/ZP_QU_DG_MYTASK_SRV_Annotation.xml
             urlPath: /destinations/SONALIKA_DEV/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZP_QU_DG_MYTASK_ANNO_MDL',Version='0001')/$value/
           - localPath: ./webapp/localService/ZC_QU_DG_MM_REQ_MON_CDS/ZC_QU_DG_MM_REQ_MON_CDS_VAN.xml
             urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZC_QU_DG_MM_REQ_MON_CDS_VAN',Version='0001')/$value/

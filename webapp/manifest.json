@@ -74,14 +74,14 @@
                     "odataVersion": "2.0"
                 }
             },
-            "ZP_QU_DG_MYTASK_BND": {
-                "uri": "/sap/opu/odata/sap/ZP_QU_DG_MYTASK_BND",
+            "ZP_QU_DG_MYTASK_SRV": {
+                "uri": "/sap/opu/odata/sap/ZP_QU_DG_MYTASK_SRV",
                 "type": "OData",
                 "settings": {
                     "annotations": [
-                        "ZP_QU_DG_MYTASK_BND_Annotation"
+                        "ZP_QU_DG_MYTASK_SRV_Annotation"
                     ],
-                    "localUri": "localService/ZP_QU_DG_MYTASK_BND/metadata.xml",
+                    "localUri": "localService/ZP_QU_DG_MYTASK_SRV/metadata.xml",
                     "odataVersion": "2.0"
                 }
             },
@@ -168,8 +168,8 @@
                     "defaultCountMode": "Inline"
                 }
             },
-            "ZP_QU_DG_MYTASK_BND": {
-                "dataSource": "ZP_QU_DG_MYTASK_BND",
+            "ZP_QU_DG_MYTASK_SRV": {
+                "dataSource": "ZP_QU_DG_MYTASK_SRV",
                 "preload": true,
                 "settings": {
                     "defaultCountMode": "Inline"
@@ -214,7 +214,7 @@
         "cards": {
             "A1_TopRequests": {
                 "template": "aidgdashboard.ext.cards",
-                "model": "ZP_QU_DG_MYTASK_BND",
+                "model": "ZP_QU_DG_MYTASK_SRV",
                 "sequencePos": 1,
                 "settings": {
                     "title": "Top Requests",
