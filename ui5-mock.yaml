@@ -19,12 +19,12 @@ server:
             destination: SONALIKA_DEV
           - path: /sap/opu/odata/sap/ZC_QU_DG_MATREQCOUNT_BND
             url: http://vhhdnds4ci.sap.SONALIKA_DEV.com:44300
-            client: "110"
+            client: "200"
             destination: SONALIKA_DEV
             authenticationType: BasicAuthentication
           - path: /sap/opu/odata/sap/ZP_QU_DG_MYTASK_SRV
             url: http://vhhdnds4ci.sap.SONALIKA_DEV.com:44300
-            client: "110"
+            client: "200"
             destination: SONALIKA_DEV
             authenticationType: BasicAuthentication
     - name: fiori-tools-appreload

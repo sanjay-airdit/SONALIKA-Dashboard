@@ -17,11 +17,11 @@ builder:
         target:
           destination: SONALIKA_DEV
           url: http://vhhdnds4ci.sap.SONALIKA_DEV.com:44300
-          client: '110'
+          client: '200'
         app:
           name: ZAIDGDASHBOARD
           description: AIDG DASHBOARD
           package: zqu-dg-fnd
-          transport: DS4K906328
+          transport: S4DK919416
         exclude:
           - /test/
