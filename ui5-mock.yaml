@@ -1,0 +1,64 @@
+specVersion: "3.1"
+metadata:
+  name: aidgdashboard
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+        backend:
+          - path: /sap
+            url: http://vhhdnds4ci.sap.SONALIKA_DEV.com:44300
+            destination: SONALIKA_DEV
+          - path: /sap/opu/odata/sap/ZC_QU_DG_MATREQCOUNT_BND
+            url: http://vhhdnds4ci.sap.SONALIKA_DEV.com:44300
+            client: "110"
+            destination: SONALIKA_DEV
+            authenticationType: BasicAuthentication
+          - path: /sap/opu/odata/sap/ZP_QU_DG_MYTASK_BND
+            url: http://vhhdnds4ci.sap.SONALIKA_DEV.com:44300
+            client: "110"
+            destination: SONALIKA_DEV
+            authenticationType: BasicAuthentication
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: aidgdashboard
+        ui5Theme: sap_horizon
+    - name: sap-fe-mockserver
+      beforeMiddleware: csp
+      configuration:
+        mountPath: /
+        services:
+          - urlPath: /sap/opu/odata/sap/ZC_QUDG_DEADLINE_MONITOR_CDS
+            metadataPath: ./webapp/localService/mainService/metadata.xml
+            mockdataPath: ./webapp/localService/mainService/data
+            generateMockData: true
+          - urlPath: /sap/opu/odata/sap/ZC_QU_DG_MM_REQ_MON_CDS
+            metadataPath: ./webapp/localService/ZC_QU_DG_MM_REQ_MON_CDS/metadata.xml
+            mockdataPath: ./webapp/localService/ZC_QU_DG_MM_REQ_MON_CDS/data
+            generateMockData: true
+          - urlPath: /sap/opu/odata/sap/ZP_QU_DG_MYTASK_BND
+            metadataPath: ./webapp/localService/ZP_QU_DG_MYTASK_BND/metadata.xml
+            mockdataPath: ./webapp/localService/ZP_QU_DG_MYTASK_BND/data
+            generateMockData: true
+        annotations:
+          - localPath: ./webapp/localService/mainService/ZC_QUDG_DEADLINE_MONITOR_CDS_VAN.xml
+            urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZC_QUDG_DEADLINE_MONITOR_CDS_VAN',Version='0001')/$value/
+          - localPath: ./webapp/localService/ZP_QU_DG_MYTASK_BND/ZP_QU_DG_MYTASK_BND_Annotation.xml
+            urlPath: /destinations/SONALIKA_DEV/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZP_QU_DG_MYTASK_ANNO_MDL',Version='0001')/$value/
+          - localPath: ./webapp/localService/ZC_QU_DG_MM_REQ_MON_CDS/ZC_QU_DG_MM_REQ_MON_CDS_VAN.xml
+            urlPath: /sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZC_QU_DG_MM_REQ_MON_CDS_VAN',Version='0001')/$value/

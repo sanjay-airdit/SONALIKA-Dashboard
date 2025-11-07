@@ -1,0 +1,440 @@
+{
+    "_version": "1.65.0",
+    "sap.app": {
+        "id": "aidgdashboard",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "0.0.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "",
+        "resources": "resources.json",
+        "sourceTemplate": {
+            "id": "@sap/generator-fiori:ovp",
+            "version": "1.16.2",
+            "toolsId": "9b1aae21-fe14-418d-945c-dd9acdff90be"
+        },
+        "dataSources": {
+            "mainService": {
+                "uri": "/sap/opu/odata/sap/ZC_QUDG_DEADLINE_MONITOR_CDS/",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "ZC_QUDG_DEADLINE_MONITOR_CDS_VAN",
+                        "annotation"
+                    ],
+                    "localUri": "localService/mainService/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZC_QUDG_DEADLINE_MONITOR_CDS_VAN": {
+                "uri": "/sap/opu/odata/IWFND/CATALOGSERVICE;v=2/Annotations(TechnicalName='ZC_QUDG_DEADLINE_MONITOR_CDS_VAN',Version='0001')/$value/",
+                "type": "ODataAnnotation",
+                "settings": {
+                    "localUri": "localService/mainService/ZC_QUDG_DEADLINE_MONITOR_CDS_VAN.xml"
+                }
+            },
+            "annotation": {
+                "type": "ODataAnnotation",
+                "uri": "annotations/annotation.xml",
+                "settings": {
+                    "localUri": "annotations/annotation.xml"
+                }
+            },
+            "ZC_QU_DG_MATREQCOUNT_BND": {
+                "uri": "/sap/opu/odata/sap/ZC_QU_DG_MATREQCOUNT_BND",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "annotation0"
+                    ],
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZC_QU_DG_MM_REQ_MON_CDS": {
+                "uri": "/sap/opu/odata/sap/ZC_QU_DG_MM_REQ_MON_CDS",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "annotation1"
+                    ],
+                    "localUri": "localService/ZC_QU_DG_MM_REQ_MON_CDS/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZC_QU_DG_REQUEST_DETAIL_CDS": {
+                "uri": "/sap/opu/odata/sap/ZC_QU_DG_REQUEST_DETAIL_CDS",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "annotation1"
+                    ],
+                    "localUri": "localService/ZC_QU_DG_REQUEST_DETAIL_CDS/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "ZP_QU_DG_MYTASK_BND": {
+                "uri": "/sap/opu/odata/sap/ZP_QU_DG_MYTASK_BND",
+                "type": "OData",
+                "settings": {
+                    "annotations": [
+                        "ZP_QU_DG_MYTASK_BND_Annotation"
+                    ],
+                    "localUri": "localService/ZP_QU_DG_MYTASK_BND/metadata.xml",
+                    "odataVersion": "2.0"
+                }
+            },
+            "annotation0": {
+                "type": "ODataAnnotation",
+                "uri": "annotations/annotation0.xml",
+                "settings": {
+                    "localUri": "annotations/annotation0.xml"
+                }
+            },
+            "annotation1": {
+                "type": "ODataAnnotation",
+                "uri": "annotations/annotation1.xml",
+                "settings": {
+                    "localUri": "annotations/annotation1.xml"
+                }
+            }
+        }
+    },
+    "sap.ui": {
+        "technology": "UI5",
+        "icons": {
+            "icon": "",
+            "favIcon": "",
+            "phone": "",
+            "phone@2": "",
+            "tablet": "",
+            "tablet@2": ""
+        },
+        "deviceTypes": {
+            "desktop": true,
+            "tablet": true,
+            "phone": true
+        }
+    },
+    "sap.ui5": {
+        "flexEnabled": false,
+        "dependencies": {
+            "minUI5Version": "1.132.0",
+            "libs": {
+                "sap.m": {},
+                "sap.ui.core": {},
+                "sap.ushell": {},
+                "sap.f": {},
+                "sap.ui.comp": {},
+                "sap.ui.generic.app": {},
+                "sap.suite.ui.generic.template": {},
+                "sap.ovp": {},
+                "sap.ui.rta": {},
+                "sap.ui.layout": {}
+            }
+        },
+        "contentDensities": {
+            "compact": true,
+            "cozy": true
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "aidgdashboard.i18n.i18n"
+                }
+            },
+            "mainModel": {
+                "dataSource": "mainService",
+                "preload": true,
+                "settings": {
+                    "defaultBindingMode": "TwoWay",
+                    "defaultCountMode": "Inline",
+                    "refreshAfterChange": false,
+                    "metadataUrlParams": {
+                        "sap-value-list": "none"
+                    }
+                }
+            },
+            "@i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "uri": "i18n/i18n.properties"
+            },
+            "ZC_QU_DG_MATREQCOUNT_BND": {
+                "dataSource": "ZC_QU_DG_MATREQCOUNT_BND",
+                "preload": true,
+                "settings": {
+                    "defaultCountMode": "Inline"
+                }
+            },
+            "ZP_QU_DG_MYTASK_BND": {
+                "dataSource": "ZP_QU_DG_MYTASK_BND",
+                "preload": true,
+                "settings": {
+                    "defaultCountMode": "Inline"
+                }
+            },
+            "ZC_QU_DG_MM_REQ_MON_CDS": {
+                "dataSource": "ZC_QU_DG_MM_REQ_MON_CDS",
+                "preload": true,
+                "settings": {
+                    "defaultCountMode": "Inline"
+                }
+            },
+            "ZC_QU_DG_REQUEST_DETAIL_CDS": {
+                "dataSource": "ZC_QU_DG_REQUEST_DETAIL_CDS",
+                "preload": true,
+                "settings": {
+                    "defaultCountMode": "Inline"
+                }
+            }
+        },
+        "resources": {
+            "css": [
+                {
+                    "uri": "css/styles.css"
+                }
+            ]
+        },
+        "routing": {
+            "config": {},
+            "routes": [],
+            "targets": {}
+        }
+    },
+    "sap.ovp": {
+        "globalFilterModel": "mainModel",
+        "globalFilterEntityType": "ZC_QUDG_DEADLINE_MONITORType",
+        "containerLayout": "resizable",
+        "enableLiveFilter": true,
+        "considerAnalyticalParameters": false,
+        "smartVariantRequired": false,
+        "bHeaderExpanded": false,
+        "cards": {
+            "A1_TopRequests": {
+                "template": "aidgdashboard.ext.cards",
+                "model": "ZP_QU_DG_MYTASK_BND",
+                "sequencePos": 1,
+                "settings": {
+                    "title": "Top Requests",
+                    "layout": {
+                        "row": 1,
+                        "column": 1,
+                        "colSpan": 1
+                    },
+                    "defaultSpan": {
+                        "cols": 6,
+                        "rows": 1
+                    }
+                }
+            },
+            "B1_AwaitingDays": {
+                "template": "sap.ovp.cards.table",
+                "model": "mainModel",
+                "settings": {
+                    "entitySet": "ZC_QUDG_DEADLINE_MONITOR",
+                    "title": "Longest Running Open Requests (Single)",
+                    "listFlavor": "bar",
+                    "listType": "extended",
+                    "tabs": [
+                        {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#lineItems",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#pendingdaysQ",
+                            "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#PendingDays",
+                            "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification",
+                            "value": "Last 14 Days"
+                        },
+                        {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#lineItems",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#pendingdays30",
+                            "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#PendingDays",
+                            "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification",
+                            "value": "Last 30 Days"
+                        },
+                        {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#lineItems",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#pendingdaysGT30",
+                            "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#PendingDays",
+                            "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification",
+                            "value": "Older than 30 Days"
+                        }
+                    ],
+                    "sortBy": "PENDING_DAYS",
+                    "sortOrder": "descending"
+                }
+            },
+            "B2_AwaitingDaysMass": {
+                "template": "sap.ovp.cards.table",
+                "model": "mainModel",
+                "settings": {
+                    "entitySet": "ZC_QUDG_DEADLINE_MONITOR",
+                    "title": "Longest Running Open Requests (Mass)",
+                    "listFlavor": "bar",
+                    "listType": "extended",
+                    "tabs": [
+                        {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#lineItemsMass",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#pendingdaysQMass",
+                            "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#PendingDaysMass",
+                            "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification",
+                            "value": "Last 14 Days"
+                        },
+                        {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#lineItemsMass",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#pendingdays30Mass",
+                            "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#PendingDaysMass",
+                            "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification",
+                            "value": "Last 30 Days"
+                        },
+                        {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#lineItemsMass",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#pendingdaysGT30Mass",
+                            "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#PendingDaysMass",
+                            "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification",
+                            "value": "Older than 30 Days"
+                        }
+                    ],
+                    "sortBy": "PENDING_DAYS",
+                    "sortOrder": "descending"
+                }
+            },
+            "B4_cardreqcount": {
+                "template": "sap.ovp.cards.list",
+                "model": "ZC_QU_DG_REQUEST_DETAIL_CDS",
+                "settings": {
+                    "listFlavor": "bar",
+                    "listType": "condensed",
+                    "entitySet": "ZC_QU_DG_REQUEST_DETAIL",
+                    "addODataSelect": true,
+                    
+                    "title": "Requests With Master Type",
+                    "tabs": [
+                        {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#MastercountQ2",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#Masterfilter",
+                            "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#Masteriuyt",
+                            "value": "Created By Me"
+                        },
+                        {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#MastercountQ2",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#Masterfilter2",
+                            "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#Masteriuyt",
+                            "value": "Created by Others"
+                        }
+                    ]
+                }
+            },
+            "B6_myrequestsSingle": {
+                "template": "sap.ovp.cards.list",
+                "model": "ZC_QU_DG_MATREQCOUNT_BND",
+                "settings": {
+                    "listFlavor": "bar",
+                    "listType": "condensed",
+                    "entitySet": "ZC_QU_DG_MM_Req",
+                    "title": "Requests With My Participation (Single Requests)",
+                    "tabs": [
+                        {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#usercountQ",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#MyReqfilter",
+                            "value": "Created By Me"
+                        },
+                        {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#usercountQ",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#MyReqfilterPending",
+                            "value": "Pending For My Action"
+                        }
+                    ]
+                }
+            },
+            "B3_useranalytics": {
+                "template": "sap.ovp.cards.charts.analytical",
+                "model": "ZC_QU_DG_MATREQCOUNT_BND",
+                "settings": {
+                    "defaultSpan": {
+                        "cols": 2,
+                        "rows": 0
+                    },
+                    "entitySet": "ZC_QU_DG_CURRUSRROLEWF",
+                    "title": "Requests by User/Role",
+                    "subTitle": "Requests by User/Role",
+                    "tabs": [
+                        {
+                            "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#useranalytics",
+                            "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#useranalyticsParam",
+                            "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#useranalyticsdatapoint",
+                            "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#useranalyticspresent",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#useranalyticsfilter",
+                            "value": "By User"
+                        },
+                        {
+                            "chartAnnotationPath": "com.sap.vocabularies.UI.v1.Chart#useranalytics2",
+                            "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.Identification#useranalyticsParam2",
+                            "dataPointAnnotationPath": "com.sap.vocabularies.UI.v1.DataPoint#useranalyticsdatapoint2",
+                            "presentationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#useranalyticspresent2",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#useranalyticsfilter2",
+                            "value": "By Role"
+                        }
+                    ]
+                }
+            },
+            "B5_myrequestsmass": {
+                "template": "sap.ovp.cards.list",
+                "model": "ZC_QU_DG_MATREQCOUNT_BND",
+                "settings": {
+                    "layout": {
+                        "row": 4,
+                        "column": 4,
+                        "colSpan": 1
+                    },
+                    "listFlavor": "bar",
+                    "listType": "condensed",
+                    "entitySet": "ZC_QU_DG_MM_MassReq",
+                    "title": "Requests With My Participation (Mass Requests)",
+                    "tabs": [
+                        {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#usercountQMass",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#MyReqfilterMass",
+                            "value": "Created By Me"
+                        },
+                        {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#usercountQMass",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#MyReqfilterPendingMass",
+                            "value": "Pending For My Action"
+                        }
+                    ]
+                }
+            },
+            "B_myrequestsSingle": {
+                "template": "sap.ovp.cards.list",
+                "model": "ZC_QU_DG_REQUEST_DETAIL_CDS",
+                "settings": {
+                    "listFlavor": "bar",
+                    "listType": "condensed",
+                    "entitySet": "ZC_QU_DG_REQUEST_DETAIL",
+                    "addODataSelect": true,
+                    "title": "Requests With My Participation 2 (Single Requests)",
+                    "tabs": [
+                        {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#usercountQ2",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#MyReqfilter2",
+                            "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#iuyt",
+                            "value": "Created By Me"
+                        },
+                        {
+                            "annotationPath": "com.sap.vocabularies.UI.v1.LineItem#usercountQ2",
+                            "selectionAnnotationPath": "com.sap.vocabularies.UI.v1.SelectionVariant#MyReqfilterPending2",
+                            "identificationAnnotationPath": "com.sap.vocabularies.UI.v1.PresentationVariant#iuyt",
+                            "value": "Pending For My Action"
+                        }
+                    ]
+                }
+            }
+        },
+        "chartSettings": {}
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "analytical"
+    }
+}

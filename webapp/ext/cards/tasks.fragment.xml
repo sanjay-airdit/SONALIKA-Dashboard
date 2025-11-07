@@ -1,0 +1,34 @@
+<core:FragmentDefinition xmlns:unified="sap.ui.unified"
+    xmlns="sap.m"
+    xmlns:core="sap.ui.core"
+    xmlns:template="http://schemas.sap.com/sapui5/extension/sap.ui.core.template/1">
+    <VBox>
+        <HBox justifyContent="SpaceBetween" alignItems="Center" class="sapUiSmallMargin">
+            <Title text="Top Requests" />
+            <Select change="onSelectionChange" selectedKey="RECENT">
+                <core:Item key="RECENT" text="Most Recent" />
+                <core:Item key="OLD" text="Oldest" />
+                <core:Item key="PRIORITY" text="Top Prority" />
+            </Select>
+        </HBox>
+        <ScrollContainer height="100%" width="100%" focusable="true" vertical="true">
+            <HBox items="{TilesModel>/}">
+                <GenericTile class="sapUiTinyMargin tileLayout" header="{TilesModel>WorkItem_text}" subheader="{TilesModel>Technical_WorkFlow_Object}" press="onTilePress" frameType="Auto" mode="ContentMode">
+                    <TileContent footer="{TilesModel>req_created_by}">
+                        <content>
+                            <VBox justifyContent="Center">
+                                <ObjectStatus class="sapMObjectStatusTiny" text="{TilesModel>Priority_Description}" state="{path: 'TilesModel>WorkItem_Priority', formatter: '.formatter.getPriorityState'}" icon="{path: 'TilesModel>WorkItem_Priority', formatter: '.formatter.getPriorityIcon'}" inverted="true"/>
+                                <ExpandableText text="{TilesModel>req_desc}" overflowMode="Popover" class="sapUiTinyMarginBottom sapUiTinyMarginTop" maxCharacters="15"/>
+                            </VBox>
+                        </content>
+                    </TileContent>
+                </GenericTile>
+            </HBox>
+        </ScrollContainer>
+
+    </VBox>
+</core:FragmentDefinition>
+
+
+
+

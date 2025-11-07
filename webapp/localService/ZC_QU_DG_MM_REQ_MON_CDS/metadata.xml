@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:Reference Uri="./sap/opu/odata/iwfnd/catalogservice;v=2/Vocabularies(TechnicalName='%2FIWBEP%2FVOC_COMMON',Version='0001',SAP__Origin='')/$value" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+        <edmx:Include Namespace="com.sap.vocabularies.Common.v1" Alias="Common"/>
+    </edmx:Reference>
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZC_QU_DG_MM_REQ_MON_CDS" xml:lang="en" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <Annotation Term="Core.SchemaVersion" String="1.0.0" xmlns="http://docs.oasis-open.org/odata/ns/edm"/>
+            <EntityType Name="ZC_QU_DG_MM_REQ_MONType" sap:label="Material con Req monitor based on Userid" sap:semantics="aggregate" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ID"/>
+                </Key>
+                <Property Name="ID" Type="Edm.String" Nullable="false" sap:filterable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="TotaledProperties" Type="Edm.String" sap:aggregation-role="totaled-properties-list" sap:is-annotation="true" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_by" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:label="Created By" sap:quickinfo="Name of Person Responsible for Creating the Object" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="req_changed_on" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:text="req_changed_on_T" sap:label="Last Change" sap:quickinfo="Date of Last Change" sap:creatable="false" sap:updatable="false" sap:semantics="yearmonthday"/>
+                <Property Name="req_changed_on_T" Type="Edm.String" MaxLength="10" sap:label="Last Change (Description)" sap:quickinfo="Date of Last Change" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="req_changed_by" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:label="Changed By" sap:quickinfo="Name of Person Who Changed Object" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="req_created_on" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:text="req_created_on_T" sap:label="Created On" sap:creatable="false" sap:updatable="false" sap:semantics="yearmonthday"/>
+                <Property Name="req_created_on_T" Type="Edm.String" MaxLength="10" sap:label="Created On (Description)" sap:quickinfo="Created On" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="instid" Type="Edm.String" MaxLength="70" sap:aggregation-role="dimension" sap:label="Instance ID" sap:quickinfo="Instance Ident. in BOR Compat. Persistent Object References" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="note_exist" Type="Edm.String" MaxLength="1" sap:aggregation-role="dimension" sap:label="Attachments exist" sap:quickinfo="Indicator Denoting that At Least One Note Exists for the WI" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="notify" Type="Edm.String" MaxLength="1" sap:aggregation-role="dimension" sap:label="Notif. of completion" sap:quickinfo="Flag: Whether a Notification of Completion Is To Be Sent" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="status" Type="Edm.String" MaxLength="9" sap:aggregation-role="dimension" sap:label="STATUS" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="users" Type="Edm.String" MaxLength="6" sap:aggregation-role="dimension" sap:label="USERS" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="wi_cbfb" Type="Edm.String" MaxLength="30" sap:aggregation-role="dimension" sap:label="Callback Funct. Mod." sap:quickinfo="Callback Function Module for Work Item Feedback" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="wi_cd" Type="Edm.String" MaxLength="10" sap:aggregation-role="dimension" sap:text="wi_cd_T" sap:label="Creation Date" sap:quickinfo="Creation Date of Work Item" sap:creatable="false" sap:updatable="false" sap:semantics="yearmonthday"/>
+                <Property Name="wi_cd_T" Type="Edm.String" MaxLength="10" sap:label="Creation Date (Description)" sap:quickinfo="Creation Date of Work Item" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="wi_chckwi" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:label="Workflow" sap:quickinfo="Superordinate Work Item" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="wi_creator" Type="Edm.String" MaxLength="90" sap:aggregation-role="dimension" sap:label="Creator" sap:quickinfo="Creator of a work item" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="wi_cruser" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:label="Creator" sap:quickinfo="User Who Created the Work Item" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="wi_ct" Type="Edm.Time" Precision="0" sap:aggregation-role="dimension" sap:text="wi_ct_T" sap:label="Creation Time" sap:quickinfo="Creation Time of Work Item" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="wi_ct_T" Type="Edm.String" MaxLength="10" sap:label="Creation Time (Description)" sap:quickinfo="Creation Time of Work Item" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+                <Property Name="wi_lang" Type="Edm.String" MaxLength="2" sap:aggregation-role="dimension" sap:label="Language" sap:quickinfo="Language for Texts of a Work Item" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="wi_prio" Type="Edm.Int32" sap:aggregation-role="dimension" sap:label="Priority" sap:quickinfo="Priority of a Work Item" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="wi_reject" Type="Edm.String" MaxLength="1" sap:aggregation-role="dimension" sap:label="Rejectable" sap:quickinfo="Indicator Denoting that Work Item Can Be Rejected by Agent" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="wi_rh_task" Type="Edm.String" MaxLength="14" sap:aggregation-role="dimension" sap:label="Task" sap:quickinfo="Task ID" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="wi_stat" Type="Edm.String" MaxLength="12" sap:aggregation-role="dimension" sap:label="Status" sap:quickinfo="Processing Status of a Work Item" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="wi_text" Type="Edm.String" MaxLength="120" sap:aggregation-role="dimension" sap:label="Work item text" sap:creatable="false" sap:updatable="false"/>
+                <Property Name="wi_type" Type="Edm.String" MaxLength="1" sap:aggregation-role="dimension" sap:label="Type" sap:quickinfo="Work item type" sap:creatable="false" sap:updatable="false" sap:value-list="standard"/>
+                <Property Name="status_count" Type="Edm.Decimal" Precision="42" Scale="0" sap:aggregation-role="measure" sap:filterable="false" sap:text="status_count_F" sap:updatable="false" sap:label="STATUS_COUNT" sap:creatable="false"/>
+                <Property Name="status_count_F" Type="Edm.String" MaxLength="60" sap:label="STATUS_COUNT (Formatted)" sap:creatable="false" sap:updatable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityType Name="note_exist" sap:label="Attachments exist (Master Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="note_exist_ID"/>
+                </Key>
+                <Property Name="note_exist_ID" Type="Edm.String" Nullable="false" MaxLength="1" sap:text="note_existText" sap:label="Attachments exist" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="note_existText" Type="Edm.String" sap:label="Attachments exist (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="note_existResult" sap:label="Attachments exist (Booked Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="note_exist"/>
+                </Key>
+                <Property Name="note_exist" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Attachments exist" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_by" Type="Edm.String" MaxLength="12" sap:label="Created By" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_changed_on" Type="Edm.String" MaxLength="10" sap:text="req_changed_on_T" sap:label="Last Change" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_changed_on_T" Type="Edm.String" sap:label="Last Change (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="req_changed_by" Type="Edm.String" MaxLength="12" sap:label="Changed By" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_on" Type="Edm.String" MaxLength="10" sap:text="req_created_on_T" sap:label="Created On" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_on_T" Type="Edm.String" sap:label="Created On (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="instid" Type="Edm.String" MaxLength="70" sap:label="Instance ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="notify" Type="Edm.String" MaxLength="1" sap:label="Notif. of completion" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="status" Type="Edm.String" MaxLength="9" sap:label="STATUS" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="users" Type="Edm.String" MaxLength="6" sap:label="USERS" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cbfb" Type="Edm.String" MaxLength="30" sap:label="Callback Funct. Mod." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cd" Type="Edm.String" MaxLength="10" sap:text="wi_cd_T" sap:label="Creation Date" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cd_T" Type="Edm.String" sap:label="Creation Date (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="wi_chckwi" Type="Edm.String" MaxLength="12" sap:label="Workflow" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_creator" Type="Edm.String" MaxLength="90" sap:label="Creator" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cruser" Type="Edm.String" MaxLength="12" sap:label="Creator" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_ct" Type="Edm.String" MaxLength="6" sap:text="wi_ct_T" sap:label="Creation Time" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_ct_T" Type="Edm.String" sap:label="Creation Time (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="wi_lang" Type="Edm.String" MaxLength="2" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_prio" Type="Edm.String" MaxLength="1" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_reject" Type="Edm.String" MaxLength="1" sap:label="Rejectable" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_rh_task" Type="Edm.String" MaxLength="14" sap:label="Task" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_stat" Type="Edm.String" MaxLength="12" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_text" Type="Edm.String" MaxLength="120" sap:label="Work item text" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_type" Type="Edm.String" MaxLength="1" sap:label="Type" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="notify" sap:label="Notif. of completion (Master Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="notify_ID"/>
+                </Key>
+                <Property Name="notify_ID" Type="Edm.String" Nullable="false" MaxLength="1" sap:text="notifyText" sap:label="Notif. of completion" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="notifyText" Type="Edm.String" sap:label="Notif. of completion (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="notifyResult" sap:label="Notif. of completion (Booked Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="notify"/>
+                </Key>
+                <Property Name="notify" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Notif. of completion" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_by" Type="Edm.String" MaxLength="12" sap:label="Created By" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_changed_on" Type="Edm.String" MaxLength="10" sap:text="req_changed_on_T" sap:label="Last Change" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_changed_on_T" Type="Edm.String" sap:label="Last Change (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="req_changed_by" Type="Edm.String" MaxLength="12" sap:label="Changed By" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_on" Type="Edm.String" MaxLength="10" sap:text="req_created_on_T" sap:label="Created On" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_on_T" Type="Edm.String" sap:label="Created On (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="instid" Type="Edm.String" MaxLength="70" sap:label="Instance ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="note_exist" Type="Edm.String" MaxLength="1" sap:label="Attachments exist" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="status" Type="Edm.String" MaxLength="9" sap:label="STATUS" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="users" Type="Edm.String" MaxLength="6" sap:label="USERS" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cbfb" Type="Edm.String" MaxLength="30" sap:label="Callback Funct. Mod." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cd" Type="Edm.String" MaxLength="10" sap:text="wi_cd_T" sap:label="Creation Date" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cd_T" Type="Edm.String" sap:label="Creation Date (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="wi_chckwi" Type="Edm.String" MaxLength="12" sap:label="Workflow" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_creator" Type="Edm.String" MaxLength="90" sap:label="Creator" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cruser" Type="Edm.String" MaxLength="12" sap:label="Creator" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_ct" Type="Edm.String" MaxLength="6" sap:text="wi_ct_T" sap:label="Creation Time" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_ct_T" Type="Edm.String" sap:label="Creation Time (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="wi_lang" Type="Edm.String" MaxLength="2" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_prio" Type="Edm.String" MaxLength="1" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_reject" Type="Edm.String" MaxLength="1" sap:label="Rejectable" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_rh_task" Type="Edm.String" MaxLength="14" sap:label="Task" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_stat" Type="Edm.String" MaxLength="12" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_text" Type="Edm.String" MaxLength="120" sap:label="Work item text" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_type" Type="Edm.String" MaxLength="1" sap:label="Type" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="wi_lang" sap:label="Language (Master Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="wi_lang_ID"/>
+                </Key>
+                <Property Name="wi_lang_ID" Type="Edm.String" Nullable="false" MaxLength="2" sap:text="wi_langText" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_langText" Type="Edm.String" sap:label="Language (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="wi_langResult" sap:label="Language (Booked Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="wi_lang"/>
+                </Key>
+                <Property Name="wi_lang" Type="Edm.String" Nullable="false" MaxLength="2" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_by" Type="Edm.String" MaxLength="12" sap:label="Created By" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_changed_on" Type="Edm.String" MaxLength="10" sap:text="req_changed_on_T" sap:label="Last Change" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_changed_on_T" Type="Edm.String" sap:label="Last Change (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="req_changed_by" Type="Edm.String" MaxLength="12" sap:label="Changed By" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_on" Type="Edm.String" MaxLength="10" sap:text="req_created_on_T" sap:label="Created On" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_on_T" Type="Edm.String" sap:label="Created On (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="instid" Type="Edm.String" MaxLength="70" sap:label="Instance ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="note_exist" Type="Edm.String" MaxLength="1" sap:label="Attachments exist" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="notify" Type="Edm.String" MaxLength="1" sap:label="Notif. of completion" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="status" Type="Edm.String" MaxLength="9" sap:label="STATUS" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="users" Type="Edm.String" MaxLength="6" sap:label="USERS" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cbfb" Type="Edm.String" MaxLength="30" sap:label="Callback Funct. Mod." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cd" Type="Edm.String" MaxLength="10" sap:text="wi_cd_T" sap:label="Creation Date" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cd_T" Type="Edm.String" sap:label="Creation Date (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="wi_chckwi" Type="Edm.String" MaxLength="12" sap:label="Workflow" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_creator" Type="Edm.String" MaxLength="90" sap:label="Creator" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cruser" Type="Edm.String" MaxLength="12" sap:label="Creator" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_ct" Type="Edm.String" MaxLength="6" sap:text="wi_ct_T" sap:label="Creation Time" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_ct_T" Type="Edm.String" sap:label="Creation Time (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="wi_prio" Type="Edm.String" MaxLength="1" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_reject" Type="Edm.String" MaxLength="1" sap:label="Rejectable" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_rh_task" Type="Edm.String" MaxLength="14" sap:label="Task" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_stat" Type="Edm.String" MaxLength="12" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_text" Type="Edm.String" MaxLength="120" sap:label="Work item text" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_type" Type="Edm.String" MaxLength="1" sap:label="Type" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="wi_prio" sap:label="Priority (Master Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="wi_prio_ID"/>
+                </Key>
+                <Property Name="wi_prio_ID" Type="Edm.String" Nullable="false" MaxLength="1" sap:text="wi_prioText" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_prioText" Type="Edm.String" sap:label="Priority (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="wi_prioResult" sap:label="Priority (Booked Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="wi_prio"/>
+                </Key>
+                <Property Name="wi_prio" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_by" Type="Edm.String" MaxLength="12" sap:label="Created By" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_changed_on" Type="Edm.String" MaxLength="10" sap:text="req_changed_on_T" sap:label="Last Change" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_changed_on_T" Type="Edm.String" sap:label="Last Change (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="req_changed_by" Type="Edm.String" MaxLength="12" sap:label="Changed By" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_on" Type="Edm.String" MaxLength="10" sap:text="req_created_on_T" sap:label="Created On" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_on_T" Type="Edm.String" sap:label="Created On (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="instid" Type="Edm.String" MaxLength="70" sap:label="Instance ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="note_exist" Type="Edm.String" MaxLength="1" sap:label="Attachments exist" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="notify" Type="Edm.String" MaxLength="1" sap:label="Notif. of completion" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="status" Type="Edm.String" MaxLength="9" sap:label="STATUS" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="users" Type="Edm.String" MaxLength="6" sap:label="USERS" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cbfb" Type="Edm.String" MaxLength="30" sap:label="Callback Funct. Mod." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cd" Type="Edm.String" MaxLength="10" sap:text="wi_cd_T" sap:label="Creation Date" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cd_T" Type="Edm.String" sap:label="Creation Date (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="wi_chckwi" Type="Edm.String" MaxLength="12" sap:label="Workflow" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_creator" Type="Edm.String" MaxLength="90" sap:label="Creator" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cruser" Type="Edm.String" MaxLength="12" sap:label="Creator" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_ct" Type="Edm.String" MaxLength="6" sap:text="wi_ct_T" sap:label="Creation Time" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_ct_T" Type="Edm.String" sap:label="Creation Time (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="wi_lang" Type="Edm.String" MaxLength="2" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_reject" Type="Edm.String" MaxLength="1" sap:label="Rejectable" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_rh_task" Type="Edm.String" MaxLength="14" sap:label="Task" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_stat" Type="Edm.String" MaxLength="12" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_text" Type="Edm.String" MaxLength="120" sap:label="Work item text" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_type" Type="Edm.String" MaxLength="1" sap:label="Type" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="wi_reject" sap:label="Rejectable (Master Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="wi_reject_ID"/>
+                </Key>
+                <Property Name="wi_reject_ID" Type="Edm.String" Nullable="false" MaxLength="1" sap:text="wi_rejectText" sap:label="Rejectable" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_rejectText" Type="Edm.String" sap:label="Rejectable (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="wi_rejectResult" sap:label="Rejectable (Booked Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="wi_reject"/>
+                </Key>
+                <Property Name="wi_reject" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Rejectable" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_by" Type="Edm.String" MaxLength="12" sap:label="Created By" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_changed_on" Type="Edm.String" MaxLength="10" sap:text="req_changed_on_T" sap:label="Last Change" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_changed_on_T" Type="Edm.String" sap:label="Last Change (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="req_changed_by" Type="Edm.String" MaxLength="12" sap:label="Changed By" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_on" Type="Edm.String" MaxLength="10" sap:text="req_created_on_T" sap:label="Created On" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_on_T" Type="Edm.String" sap:label="Created On (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="instid" Type="Edm.String" MaxLength="70" sap:label="Instance ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="note_exist" Type="Edm.String" MaxLength="1" sap:label="Attachments exist" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="notify" Type="Edm.String" MaxLength="1" sap:label="Notif. of completion" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="status" Type="Edm.String" MaxLength="9" sap:label="STATUS" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="users" Type="Edm.String" MaxLength="6" sap:label="USERS" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cbfb" Type="Edm.String" MaxLength="30" sap:label="Callback Funct. Mod." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cd" Type="Edm.String" MaxLength="10" sap:text="wi_cd_T" sap:label="Creation Date" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cd_T" Type="Edm.String" sap:label="Creation Date (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="wi_chckwi" Type="Edm.String" MaxLength="12" sap:label="Workflow" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_creator" Type="Edm.String" MaxLength="90" sap:label="Creator" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cruser" Type="Edm.String" MaxLength="12" sap:label="Creator" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_ct" Type="Edm.String" MaxLength="6" sap:text="wi_ct_T" sap:label="Creation Time" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_ct_T" Type="Edm.String" sap:label="Creation Time (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="wi_lang" Type="Edm.String" MaxLength="2" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_prio" Type="Edm.String" MaxLength="1" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_rh_task" Type="Edm.String" MaxLength="14" sap:label="Task" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_stat" Type="Edm.String" MaxLength="12" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_text" Type="Edm.String" MaxLength="120" sap:label="Work item text" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_type" Type="Edm.String" MaxLength="1" sap:label="Type" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="wi_stat" sap:label="Status (Master Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="wi_stat_ID"/>
+                </Key>
+                <Property Name="wi_stat_ID" Type="Edm.String" Nullable="false" MaxLength="12" sap:text="wi_statText" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_statText" Type="Edm.String" sap:label="Status (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="wi_statResult" sap:label="Status (Booked Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="wi_stat"/>
+                </Key>
+                <Property Name="wi_stat" Type="Edm.String" Nullable="false" MaxLength="12" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_by" Type="Edm.String" MaxLength="12" sap:label="Created By" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_changed_on" Type="Edm.String" MaxLength="10" sap:text="req_changed_on_T" sap:label="Last Change" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_changed_on_T" Type="Edm.String" sap:label="Last Change (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="req_changed_by" Type="Edm.String" MaxLength="12" sap:label="Changed By" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_on" Type="Edm.String" MaxLength="10" sap:text="req_created_on_T" sap:label="Created On" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_on_T" Type="Edm.String" sap:label="Created On (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="instid" Type="Edm.String" MaxLength="70" sap:label="Instance ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="note_exist" Type="Edm.String" MaxLength="1" sap:label="Attachments exist" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="notify" Type="Edm.String" MaxLength="1" sap:label="Notif. of completion" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="status" Type="Edm.String" MaxLength="9" sap:label="STATUS" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="users" Type="Edm.String" MaxLength="6" sap:label="USERS" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cbfb" Type="Edm.String" MaxLength="30" sap:label="Callback Funct. Mod." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cd" Type="Edm.String" MaxLength="10" sap:text="wi_cd_T" sap:label="Creation Date" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cd_T" Type="Edm.String" sap:label="Creation Date (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="wi_chckwi" Type="Edm.String" MaxLength="12" sap:label="Workflow" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_creator" Type="Edm.String" MaxLength="90" sap:label="Creator" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cruser" Type="Edm.String" MaxLength="12" sap:label="Creator" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_ct" Type="Edm.String" MaxLength="6" sap:text="wi_ct_T" sap:label="Creation Time" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_ct_T" Type="Edm.String" sap:label="Creation Time (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="wi_lang" Type="Edm.String" MaxLength="2" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_prio" Type="Edm.String" MaxLength="1" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_reject" Type="Edm.String" MaxLength="1" sap:label="Rejectable" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_rh_task" Type="Edm.String" MaxLength="14" sap:label="Task" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_text" Type="Edm.String" MaxLength="120" sap:label="Work item text" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_type" Type="Edm.String" MaxLength="1" sap:label="Type" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="wi_type" sap:label="Type (Master Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="wi_type_ID"/>
+                </Key>
+                <Property Name="wi_type_ID" Type="Edm.String" Nullable="false" MaxLength="1" sap:text="wi_typeText" sap:label="Type" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_typeText" Type="Edm.String" sap:label="Type (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="wi_typeResult" sap:label="Type (Booked Data)" sap:value-list="true" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="wi_type"/>
+                </Key>
+                <Property Name="wi_type" Type="Edm.String" Nullable="false" MaxLength="1" sap:label="Type" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_by" Type="Edm.String" MaxLength="12" sap:label="Created By" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_changed_on" Type="Edm.String" MaxLength="10" sap:text="req_changed_on_T" sap:label="Last Change" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_changed_on_T" Type="Edm.String" sap:label="Last Change (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="req_changed_by" Type="Edm.String" MaxLength="12" sap:label="Changed By" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_on" Type="Edm.String" MaxLength="10" sap:text="req_created_on_T" sap:label="Created On" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="req_created_on_T" Type="Edm.String" sap:label="Created On (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="instid" Type="Edm.String" MaxLength="70" sap:label="Instance ID" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="note_exist" Type="Edm.String" MaxLength="1" sap:label="Attachments exist" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="notify" Type="Edm.String" MaxLength="1" sap:label="Notif. of completion" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="status" Type="Edm.String" MaxLength="9" sap:label="STATUS" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="users" Type="Edm.String" MaxLength="6" sap:label="USERS" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cbfb" Type="Edm.String" MaxLength="30" sap:label="Callback Funct. Mod." sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cd" Type="Edm.String" MaxLength="10" sap:text="wi_cd_T" sap:label="Creation Date" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cd_T" Type="Edm.String" sap:label="Creation Date (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="wi_chckwi" Type="Edm.String" MaxLength="12" sap:label="Workflow" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_creator" Type="Edm.String" MaxLength="90" sap:label="Creator" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_cruser" Type="Edm.String" MaxLength="12" sap:label="Creator" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_ct" Type="Edm.String" MaxLength="6" sap:text="wi_ct_T" sap:label="Creation Time" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_ct_T" Type="Edm.String" sap:label="Creation Time (Description)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="wi_lang" Type="Edm.String" MaxLength="2" sap:label="Language" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_prio" Type="Edm.String" MaxLength="1" sap:label="Priority" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_reject" Type="Edm.String" MaxLength="1" sap:label="Rejectable" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_rh_task" Type="Edm.String" MaxLength="14" sap:label="Task" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_stat" Type="Edm.String" MaxLength="12" sap:label="Status" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+                <Property Name="wi_text" Type="Edm.String" MaxLength="120" sap:label="Work item text" sap:creatable="false" sap:updatable="false" sap:sortable="false"/>
+            </EntityType>
+            <EntityType Name="ODataQueryAdditionalMetadata" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="ODataQueryMetadata"/>
+                </Key>
+                <Property Name="ODataQueryMetadata" Type="Edm.String" Nullable="false" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ODataQueryMetadataValue_Current" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="ODataQueryMetadataValueAtDefine" Type="Edm.String" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+            </EntityType>
+            <EntityContainer Name="ZC_QU_DG_MM_REQ_MON_CDS_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="ZC_QU_DG_MM_REQ_MON" EntityType="ZC_QU_DG_MM_REQ_MON_CDS.ZC_QU_DG_MM_REQ_MONType" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="note_exist" EntityType="ZC_QU_DG_MM_REQ_MON_CDS.note_exist" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="note_existResults" EntityType="ZC_QU_DG_MM_REQ_MON_CDS.note_existResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="notify" EntityType="ZC_QU_DG_MM_REQ_MON_CDS.notify" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="notifyResults" EntityType="ZC_QU_DG_MM_REQ_MON_CDS.notifyResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="wi_lang" EntityType="ZC_QU_DG_MM_REQ_MON_CDS.wi_lang" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="wi_langResults" EntityType="ZC_QU_DG_MM_REQ_MON_CDS.wi_langResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="wi_prio" EntityType="ZC_QU_DG_MM_REQ_MON_CDS.wi_prio" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="wi_prioResults" EntityType="ZC_QU_DG_MM_REQ_MON_CDS.wi_prioResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="wi_reject" EntityType="ZC_QU_DG_MM_REQ_MON_CDS.wi_reject" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="wi_rejectResults" EntityType="ZC_QU_DG_MM_REQ_MON_CDS.wi_rejectResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="wi_stat" EntityType="ZC_QU_DG_MM_REQ_MON_CDS.wi_stat" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="wi_statResults" EntityType="ZC_QU_DG_MM_REQ_MON_CDS.wi_statResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="wi_type" EntityType="ZC_QU_DG_MM_REQ_MON_CDS.wi_type" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="wi_typeResults" EntityType="ZC_QU_DG_MM_REQ_MON_CDS.wi_typeResult" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+                <EntitySet Name="AdditionalMetadata" EntityType="ZC_QU_DG_MM_REQ_MON_CDS.ODataQueryAdditionalMetadata" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1"/>
+            </EntityContainer>
+            <Annotations Target="ZC_QU_DG_MM_REQ_MON_CDS.ZC_QU_DG_MM_REQ_MONType/note_exist" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Attachments exist ( Master Data )"/>
+                        <PropertyValue Property="CollectionPath" String="note_exist"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="note_exist"/>
+                                    <PropertyValue Property="ValueListProperty" String="note_exist_ID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="note_existText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_QU_DG_MM_REQ_MON_CDS.ZC_QU_DG_MM_REQ_MONType/notify" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Notif. of completion ( Master Data )"/>
+                        <PropertyValue Property="CollectionPath" String="notify"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="notify"/>
+                                    <PropertyValue Property="ValueListProperty" String="notify_ID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="notifyText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_QU_DG_MM_REQ_MON_CDS.ZC_QU_DG_MM_REQ_MONType/wi_lang" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Language ( Master Data )"/>
+                        <PropertyValue Property="CollectionPath" String="wi_lang"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="wi_lang"/>
+                                    <PropertyValue Property="ValueListProperty" String="wi_lang_ID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="wi_langText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_QU_DG_MM_REQ_MON_CDS.ZC_QU_DG_MM_REQ_MONType/wi_prio" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Priority ( Master Data )"/>
+                        <PropertyValue Property="CollectionPath" String="wi_prio"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="wi_prio"/>
+                                    <PropertyValue Property="ValueListProperty" String="wi_prio_ID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="wi_prioText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_QU_DG_MM_REQ_MON_CDS.ZC_QU_DG_MM_REQ_MONType/wi_reject" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Rejectable ( Master Data )"/>
+                        <PropertyValue Property="CollectionPath" String="wi_reject"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="wi_reject"/>
+                                    <PropertyValue Property="ValueListProperty" String="wi_reject_ID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="wi_rejectText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_QU_DG_MM_REQ_MON_CDS.ZC_QU_DG_MM_REQ_MONType/wi_stat" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Status ( Master Data )"/>
+                        <PropertyValue Property="CollectionPath" String="wi_stat"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="wi_stat"/>
+                                    <PropertyValue Property="ValueListProperty" String="wi_stat_ID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="wi_statText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <Annotations Target="ZC_QU_DG_MM_REQ_MON_CDS.ZC_QU_DG_MM_REQ_MONType/wi_type" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+                <Annotation Term="Common.ValueList">
+                    <Record>
+                        <PropertyValue Property="Label" String="Type ( Master Data )"/>
+                        <PropertyValue Property="CollectionPath" String="wi_type"/>
+                        <PropertyValue Property="SearchSupported" Bool="false"/>
+                        <PropertyValue Property="Parameters">
+                            <Collection>
+                                <Record Type="Common.ValueListParameterInOut">
+                                    <PropertyValue Property="LocalDataProperty" PropertyPath="wi_type"/>
+                                    <PropertyValue Property="ValueListProperty" String="wi_type_ID"/>
+                                </Record>
+                                <Record Type="Common.ValueListParameterDisplayOnly">
+                                    <PropertyValue Property="ValueListProperty" String="wi_typeText"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+            </Annotations>
+            <atom:link rel="self" href="http://vhhdnds4ci.sap.SONALIKA_DEV.com:44300/sap/opu/odata/sap/ZC_QU_DG_MM_REQ_MON_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://vhhdnds4ci.sap.SONALIKA_DEV.com:44300/sap/opu/odata/sap/ZC_QU_DG_MM_REQ_MON_CDS/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

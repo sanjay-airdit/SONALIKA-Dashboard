@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "3.1"
+metadata:
+  name: aidgdashboard
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        log: 5
+        target:
+          destination: SONALIKA_DEV
+          url: http://vhhdnds4ci.sap.SONALIKA_DEV.com:44300
+          client: '110'
+        app:
+          name: ZAIDGDASHBOARD
+          description: AIDG DASHBOARD
+          package: zqu-dg-fnd
+          transport: DS4K906328
+        exclude:
+          - /test/
